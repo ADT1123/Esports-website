@@ -1,0 +1,9 @@
+.footer {
+  border-top: 3px solid var(--maroon);
+  padding: 14px 28px;
+  text-align: center;
+  font-family: var(--font-display);
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  color: var(--off-white);
+}

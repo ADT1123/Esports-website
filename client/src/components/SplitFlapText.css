@@ -1,0 +1,52 @@
+.split-flap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.split-flap-tile {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(244, 241, 234, 0.15);
+  box-shadow:
+    inset 0 -3px 0 rgba(0, 0, 0, 0.45),
+    inset 0 2px 0 rgba(244, 241, 234, 0.06);
+}
+
+.split-flap-tile::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 1px;
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 2;
+}
+
+.split-flap-char {
+  display: inline-block;
+  font-family: var(--font-display);
+  line-height: 1;
+  animation-name: flap;
+  animation-timing-function: ease-in;
+  transform-origin: 50% 50%;
+}
+
+@keyframes flap {
+  0% {
+    transform: rotateX(85deg);
+    opacity: 0.3;
+  }
+  70% {
+    transform: rotateX(-6deg);
+  }
+  100% {
+    transform: rotateX(0deg);
+    opacity: 1;
+  }
+}

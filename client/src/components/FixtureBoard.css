@@ -1,0 +1,169 @@
+.fixture-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.fixture-actions {
+  display: flex;
+  gap: 10px;
+}
+
+/* Brackets are inherently wide (three columns) — scroll horizontally
+   rather than squeezing them unreadable on narrow screens. */
+.bracket-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin-top: 18px;
+  padding-bottom: 8px;
+}
+
+.bracket {
+  display: flex;
+  align-items: stretch;
+  gap: 48px;
+  min-width: 720px;
+  padding: 4px 2px;
+}
+
+.bracket-round {
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+  flex-shrink: 0;
+}
+
+.bracket-round-label {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.08em;
+  color: var(--maroon-light);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.bracket-round-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 24px;
+}
+
+.bracket-pair {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 18px;
+}
+
+/* Connector lines: each match gets a stub reaching into the gap on its
+   right; each pair gets a vertical bar joining its two matches, met by one
+   stub continuing on to the next round's match. */
+.bracket-round:not(:last-child) .bracket-match::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -24px;
+  width: 24px;
+  height: 2px;
+  background: var(--off-white);
+  opacity: 0.5;
+}
+
+.bracket-match {
+  position: relative;
+  border: 2px solid var(--off-white);
+  background: #141414;
+}
+
+.bracket-round:not(:last-child) .bracket-pair::before {
+  content: "";
+  position: absolute;
+  top: 25%;
+  bottom: 25%;
+  right: -24px;
+  width: 2px;
+  background: var(--off-white);
+  opacity: 0.5;
+}
+
+.bracket-team {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  border-bottom: 1px dashed rgba(216, 211, 198, 0.25);
+  color: var(--off-white);
+  font-family: var(--font-body);
+  font-size: 13px;
+  padding: 9px 10px;
+  cursor: default;
+}
+
+.bracket-match .bracket-team:last-child {
+  border-bottom: none;
+}
+
+.bracket-team:not(:disabled) {
+  cursor: pointer;
+}
+
+.bracket-team:not(:disabled):hover {
+  background: rgba(168, 23, 47, 0.15);
+  color: var(--white);
+}
+
+.bracket-team.is-winner {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.bracket-team.is-winner::before {
+  content: "▸ ";
+  color: var(--maroon-light);
+}
+
+.bracket-team.is-loser {
+  color: #6a6a6a;
+  text-decoration: line-through;
+}
+
+.bracket-team.is-bye-slot {
+  color: #555;
+  font-style: italic;
+}
+
+.bracket-champion {
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 18px;
+  border: 2px outset var(--maroon-light);
+  background: radial-gradient(ellipse at center, rgba(168, 23, 47, 0.25) 0%, transparent 70%);
+  text-align: center;
+}
+
+.bracket-champion-name {
+  font-family: var(--font-display);
+  font-size: 32px;
+  color: var(--white);
+  text-shadow: 0 0 16px rgba(168, 23, 47, 0.75);
+}
+
+@media (max-width: 640px) {
+  .bracket-round {
+    width: 160px;
+  }
+
+  .bracket {
+    gap: 32px;
+    min-width: 620px;
+  }
+}

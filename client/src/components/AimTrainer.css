@@ -1,0 +1,89 @@
+.aim-trainer {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.aim-trainer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.aim-arena {
+  position: relative;
+  height: 220px;
+  background: #0d0d0d;
+  border: 2px inset var(--off-white);
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.aim-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  text-align: center;
+  color: var(--off-white);
+  font-size: 13px;
+}
+
+.aim-best {
+  color: var(--maroon-light);
+}
+
+.aim-target {
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  margin: -17px 0 0 -17px;
+  border-radius: 50%;
+  border: 2px solid var(--white);
+  background: radial-gradient(circle at 35% 30%, var(--maroon-light), var(--maroon-dark));
+  box-shadow: 0 0 12px rgba(168, 23, 47, 0.85);
+  cursor: crosshair;
+  padding: 0;
+  animation: aim-pop 0.15s ease-out;
+}
+
+.aim-target:hover {
+  transform: scale(1.12);
+}
+
+.aim-target::before,
+.aim-target::after {
+  content: "";
+  position: absolute;
+  background: var(--white);
+}
+
+.aim-target::before {
+  left: 50%;
+  top: 6px;
+  bottom: 6px;
+  width: 1px;
+  transform: translateX(-50%);
+}
+
+.aim-target::after {
+  top: 50%;
+  left: 6px;
+  right: 6px;
+  height: 1px;
+  transform: translateY(-50%);
+}
+
+@keyframes aim-pop {
+  from {
+    transform: scale(0.4);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

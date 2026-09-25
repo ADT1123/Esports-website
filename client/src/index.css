@@ -1,0 +1,168 @@
+:root {
+  --maroon: #7a0c1e;
+  --maroon-dark: #4a0712;
+  --maroon-light: #a8172f;
+  --black: #0a0a0a;
+  --white: #f4f1ea;
+  --off-white: #d8d3c6;
+
+  --font-display: "VT323", monospace;
+  --font-body: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.5;
+  background-image: repeating-linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.015) 0px,
+    rgba(255, 255, 255, 0.015) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  letter-spacing: 0.04em;
+  margin: 0;
+}
+
+a {
+  color: var(--white);
+}
+
+button,
+input,
+select {
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* -- reusable retro chrome -------------------------------------------- */
+
+.panel {
+  background: #141414;
+  border: 2px solid var(--off-white);
+  border-style: outset;
+  padding: 18px;
+}
+
+.btn {
+  background: var(--maroon);
+  color: var(--white);
+  border: 2px outset var(--maroon-light);
+  padding: 8px 18px;
+  font-family: var(--font-display);
+  font-size: 18px;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  text-transform: uppercase;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--maroon-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--maroon-dark);
+}
+
+.btn:active:not(:disabled) {
+  border-style: inset;
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn:disabled {
+  background: #333;
+  border-color: #555;
+  color: #777;
+  cursor: not-allowed;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px outset var(--off-white);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: rgba(244, 241, 234, 0.08);
+}
+
+.btn-small {
+  font-size: 14px;
+  padding: 4px 10px;
+}
+
+input[type="text"],
+select {
+  background: var(--black);
+  color: var(--white);
+  border: 2px inset var(--off-white);
+  padding: 7px 10px;
+  width: 100%;
+}
+
+input[type="text"]:focus,
+select:focus {
+  outline: 1px dashed var(--maroon-light);
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--off-white);
+  margin-bottom: 4px;
+}
+
+.tag {
+  font-family: var(--font-display);
+  font-size: 15px;
+  letter-spacing: 0.05em;
+  color: var(--off-white);
+}
+
+.error-text {
+  color: #ff6b6b;
+  font-size: 13px;
+  margin-top: 6px;
+}
+
+.divider {
+  height: 3px;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--maroon) 0px,
+    var(--maroon) 10px,
+    var(--black) 10px,
+    var(--black) 20px
+  );
+  border-top: 1px solid var(--off-white);
+  border-bottom: 1px solid var(--off-white);
+}
