@@ -1,8 +1,4 @@
 # Valorant Esports
-
-Submission for the Ambiora Technical Department selection task — an esports
-tournament site with a landing page and a working team/bracket manager.
-
 ## What's here
 
 - `client/` — React app (Vite). Landing page + the teams & fixtures page.
@@ -15,7 +11,7 @@ Mongo for something this size.
 ## Stack
 
 React + Vite, plain CSS (no Tailwind/component library — the retro look is
-hand-written), React Router for the two pages. Backend is Node + Express.
+hand-written), React Router for the two pages. Backend is Node.js + Express.
 
 ## Running it locally
 
@@ -85,28 +81,10 @@ to in `.env`.
 - `vercel.json` in this folder handles the SPA rewrite so `/tournament`
   doesn't 404 on refresh.
 
-**Keeping the backend warm**
-Render's free tier spins the API down after 15 minutes idle, so the first
-request after a while eats a 10-30 second cold start. A cron job on
-[cron-job.org](https://cron-job.org) pings `/api/health` every 10 minutes
-to keep it awake.
 
 Live links:
 - Website: https://ambiora-website-nine.vercel.app
 - API: https://esports-website-1.onrender.com
 
-## Notes on the design
 
-Went with a maroon/black/white Y2K look instead of the usual gradient
-esports template — beveled buttons, a terminal-style font for headings,
-dashed dividers, nothing floating or animated for the sake of it. Copy is
-kept short on purpose; a button already says what it does, it doesn't need
-a paragraph under it explaining it again.
-
-The hero background is official Valorant key art, not original artwork —
-worth being upfront about since it's the one visual in here that isn't
-hand-built for this project.
-
----
-
-Built by Aditya for the Ambiora Technical Department selection round.
+Built by Aditya
